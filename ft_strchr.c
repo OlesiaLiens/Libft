@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oshyiata <oshyiata@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/28 17:02:25 by oshyiata          #+#    #+#             */
-/*   Updated: 2018/11/06 15:06:35 by oshyiata         ###   ########.fr       */
+/*   Created: 2018/10/30 14:53:40 by oshyiata          #+#    #+#             */
+/*   Updated: 2018/10/30 15:42:04 by oshyiata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+char		*ft_strchr(const char *str, int ch)
 {
-	size_t			offset;
-	unsigned char	*dst_c;
-	unsigned char	*src_c;
+	char	*a;
+	char	ch_1;
+	int		i;
 
-	offset = 0;
-	dst_c = (unsigned char*)dst;
-	src_c = (unsigned char*)src;
-	if (dst_c < src_c)
-		while (len--)
-		{
-			*(dst_c + offset) = *(src_c + offset);
-			offset++;
-		}
-	else
-		while (len--)
-			dst_c[len] = src_c[len];
-	return (dst_c);
+	a = (char *)str;
+	i = 0;
+	ch_1 = (unsigned char)ch;
+	while (str[i] != '\0')
+	{
+		if (str[i] == ch_1)
+			return (&a[i]);
+		i++;
+	}
+	return (NULL);
 }

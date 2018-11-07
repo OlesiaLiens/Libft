@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oshyiata <oshyiata@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/28 17:02:25 by oshyiata          #+#    #+#             */
-/*   Updated: 2018/11/06 15:06:35 by oshyiata         ###   ########.fr       */
+/*   Created: 2018/10/30 15:52:03 by oshyiata          #+#    #+#             */
+/*   Updated: 2018/10/30 15:59:54 by oshyiata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdio.h>
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+int		ft_strcmp(const char *s1, const char *s2)
 {
-	size_t			offset;
-	unsigned char	*dst_c;
-	unsigned char	*src_c;
+	int i;
 
-	offset = 0;
-	dst_c = (unsigned char*)dst;
-	src_c = (unsigned char*)src;
-	if (dst_c < src_c)
-		while (len--)
-		{
-			*(dst_c + offset) = *(src_c + offset);
-			offset++;
-		}
-	else
-		while (len--)
-			dst_c[len] = src_c[len];
-	return (dst_c);
+	i = 0;
+	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
+	{
+		i++;
+	}
+	return (s1[i] - s2[i]);
 }
