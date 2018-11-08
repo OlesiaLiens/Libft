@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oshyiata <oshyiata@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/07 14:21:03 by oshyiata          #+#    #+#             */
-/*   Updated: 2018/11/07 16:46:08 by oshyiata         ###   ########.fr       */
+/*   Created: 2018/11/08 13:21:49 by oshyiata          #+#    #+#             */
+/*   Updated: 2018/11/08 13:25:57 by oshyiata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memalloc(size_t size)
+void	ft_putstr(char const *s)
 {
-	void	*res;
+	size_t i;
 
-	if (size > 9223372036854775807 || size == 0)
-		return (0);
-	res = (void *)malloc(sizeof(void) * size);
-	if (res == NULL)
-		return (0);
-	ft_bzero(res, size);
-	return ((void *)res);
+	i = 0;
+	if (s && *s)
+		while (s[i])
+			ft_putchar(s[i++]);
 }
