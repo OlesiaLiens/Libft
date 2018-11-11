@@ -1,41 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oshyiata <oshyiata@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/08 12:35:13 by oshyiata          #+#    #+#             */
-/*   Updated: 2018/11/10 14:12:39 by oshyiata         ###   ########.fr       */
+/*   Created: 2018/11/11 12:25:04 by oshyiata          #+#    #+#             */
+/*   Updated: 2018/11/11 15:30:57 by oshyiata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-char	*ft_strjoin(char const *s1, char const *s2)
+t_list		*ft_lstnew(void const *content, size_t content_size)
 {
-	int		len;
-	char	*res;
-	int		i;
-	int		i2;
+	t_list	*res;
 
-	i = 0;
-	i2 = 0;
-	if ((s1 && *s1) && (s2 && *s2))
+	res = (t_list*)malloc(sizeof(t_list));
+	if (res == NULL)
+		return (NULL);
+	if (content == NULL)
 	{
-		len = ft_strlen(s1) + ft_strlen(s2);
-		res = (char *)malloc(sizeof(char) * (len + 1));
-		if (res == NULL)
-			return (NULL);
-		while (s1[i])
-		{
-			res[i] = s1[i];
-			i++;
-		}
-		while (s2[i2])
-			res[i++] = s2[i2++];
-		return (res);
+		res->content = NULL;
+		res->content_size = 0;
 	}
-	return (NULL);
+	else
+	{
+		res->content = (void*)malloc(sizeof(res->content) * content_size);
+		res->content = ft_memcpy(res->content, content, content_size);
+		res->content_size = content_size;
+	}
+	res->next = NULL;
+	return (res);
 }

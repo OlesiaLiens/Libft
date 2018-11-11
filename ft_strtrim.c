@@ -1,40 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oshyiata <oshyiata@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/08 12:35:13 by oshyiata          #+#    #+#             */
-/*   Updated: 2018/11/10 14:12:39 by oshyiata         ###   ########.fr       */
+/*   Created: 2018/11/10 15:36:21 by oshyiata          #+#    #+#             */
+/*   Updated: 2018/11/10 15:59:17 by oshyiata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdio.h>
-
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strtrim(char const *s)
 {
-	int		len;
 	char	*res;
+	int		len;
 	int		i;
-	int		i2;
 
 	i = 0;
-	i2 = 0;
-	if ((s1 && *s1) && (s2 && *s2))
+	len = 0;
+	if (s && *s)
 	{
-		len = ft_strlen(s1) + ft_strlen(s2);
-		res = (char *)malloc(sizeof(char) * (len + 1));
+		len = ft_strlen(s) - 1;
+		while (s[i] && (s[i] == ' ' || s[i] == '\n' || s[i] == '\t'))
+			i++;
+		if (s[i] == '\0')
+			return ("\0");
+		while (len > 0 && (s[len] == ' ' || s[len] == '\n' || s[len] == '\t'))
+			len--;
+		res = (char *)malloc(sizeof(char) * (len - i + 2));
 		if (res == NULL)
 			return (NULL);
-		while (s1[i])
-		{
-			res[i] = s1[i];
-			i++;
-		}
-		while (s2[i2])
-			res[i++] = s2[i2++];
+		res[len - i + 1] = '\0';
+		ft_strncpy(res, &s[i], (len - i + 1));
 		return (res);
 	}
 	return (NULL);
