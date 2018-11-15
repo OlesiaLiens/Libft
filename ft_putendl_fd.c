@@ -6,13 +6,13 @@
 /*   By: oshyiata <oshyiata@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 13:58:31 by oshyiata          #+#    #+#             */
-/*   Updated: 2018/11/08 14:02:55 by oshyiata         ###   ########.fr       */
+/*   Updated: 2018/11/12 13:24:08 by oshyiata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl(char const *s, int fd)
+void	ft_putendl_fd(char const *s, int fd)
 {
 	size_t i;
 
@@ -20,5 +20,5 @@ void	ft_putendl(char const *s, int fd)
 	if (s && *s)
 		while (*s)
 			ft_putchar_fd(s[i++], fd);
-	ft_putchar_fds('\n', fd);
+	ft_putchar_fd('\n', fd);
 }
