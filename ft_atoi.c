@@ -6,7 +6,7 @@
 /*   By: oshyiata <oshyiata@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/30 16:22:36 by oshyiata          #+#    #+#             */
-/*   Updated: 2018/11/06 18:10:25 by oshyiata         ###   ########.fr       */
+/*   Updated: 2018/11/16 17:59:31 by oshyiata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		ft_atoi(char *str)
 		sign = -1;
 		str++;
 	}
-	if (*str == '+')
+	if (*str == '+' && sign == 1)
 		str++;
 	while (*str >= '0' && *str <= '9')
 	{

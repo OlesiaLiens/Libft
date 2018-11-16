@@ -6,7 +6,7 @@
 /*   By: oshyiata <oshyiata@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/10 16:01:05 by oshyiata          #+#    #+#             */
-/*   Updated: 2018/11/15 14:48:54 by oshyiata         ###   ########.fr       */
+/*   Updated: 2018/11/15 18:02:04 by oshyiata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,7 @@ char			**ft_strsplit(char const *s, char c)
 		while (s[j] == c)
 			j++;
 		size_w = ft_get_size_w(s + j, c);
-		if (!(res[i] = (char *)malloc(sizeof(char) * (size_w + 1))))
-			return (NULL);
-		res[i][size_w] = '\0';
+		res[i] = (char *)ft_memalloc(sizeof(char) * (size_w + 1));
 		res[i] = ft_strncpy(res[i], s + j, size_w);
 		j = j + size_w;
 		i++;

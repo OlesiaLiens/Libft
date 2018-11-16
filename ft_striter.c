@@ -6,7 +6,7 @@
 /*   By: oshyiata <oshyiata@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 17:28:46 by oshyiata          #+#    #+#             */
-/*   Updated: 2018/11/07 18:45:19 by oshyiata         ###   ########.fr       */
+/*   Updated: 2018/11/16 12:47:50 by oshyiata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,7 @@ void	ft_striter(char *s, void (*f)(char*))
 	i = 0;
 	if (s && *s)
 	{
-		while (*s)
-		{
-			f(&s[i]);
-			i++;
-		}
+		while (s[i])
+			f(&s[i++]);
 	}
 }

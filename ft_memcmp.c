@@ -16,7 +16,7 @@ int		ft_memcmp(const void *arr1, const void *arr2, size_t n)
 {
 	const unsigned char *arr1_1 = (const unsigned char*)arr1;
 	const unsigned char *arr2_2 = (const unsigned char*)arr2;
-	int					i;
+	size_t				i;
 
 	i = 0;
 	while (i < n)

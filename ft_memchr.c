@@ -6,27 +6,19 @@
 /*   By: oshyiata <oshyiata@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/28 17:32:43 by oshyiata          #+#    #+#             */
-/*   Updated: 2018/10/28 18:10:48 by oshyiata         ###   ########.fr       */
+/*   Updated: 2018/11/15 16:11:50 by oshyiata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *arr, int c, size_t n)
+void				*ft_memchr(const void *s, int c, size_t n)
 {
-	const unsigned char *arr_1 = (const unsigned char*)arr;
-	int					i;
+	unsigned char	*sr;
 
-	i = 0;
-	if (arr && c && n > 0)
-	{
-		while (arr_1[i] && n)
-		{
-			if (arr_1[i] == c)
-				return ((void*)&arr[i]);
-			i++;
-			n--;
-		}
-	}
+	sr = (unsigned char *)s;
+	while (n--)
+		if (*sr++ == (unsigned char)c)
+			return (sr - 1);
 	return (NULL);
 }

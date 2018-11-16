@@ -6,7 +6,7 @@
 /*   By: oshyiata <oshyiata@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/11 16:18:37 by oshyiata          #+#    #+#             */
-/*   Updated: 2018/11/11 17:23:33 by oshyiata         ###   ########.fr       */
+/*   Updated: 2018/11/16 13:43:06 by oshyiata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 
 void	ft_lstadd(t_list **alst, t_list *new)
 {
-	if (*alst && alst && new)
+	t_list *temp;
+
+	if (*alst || alst || new)
 	{
-		new->next = *alst;
+		temp = *alst;
 		*alst = new;
+		new->next = temp;
 	}
 }

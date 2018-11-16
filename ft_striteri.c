@@ -6,7 +6,7 @@
 /*   By: oshyiata <oshyiata@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 18:37:43 by oshyiata          #+#    #+#             */
-/*   Updated: 2018/11/07 18:44:19 by oshyiata         ###   ########.fr       */
+/*   Updated: 2018/11/16 12:49:29 by oshyiata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	ft_striteri(char *s, void (*f) (unsigned int, char *))
 {
-	int i;
+	size_t	i;
 
 	i = 0;
 	if (s && *s)
 	{
-		while (*s)
+		while (s[i])
 		{
 			f((unsigned int)i, &s[i]);
 			i++;

@@ -6,7 +6,7 @@
 /*   By: oshyiata <oshyiata@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 13:58:31 by oshyiata          #+#    #+#             */
-/*   Updated: 2018/11/12 13:24:08 by oshyiata         ###   ########.fr       */
+/*   Updated: 2018/11/16 13:09:30 by oshyiata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,7 @@
 
 void	ft_putendl_fd(char const *s, int fd)
 {
-	size_t i;
-
-	i = 0;
-	if (s && *s)
-		while (*s)
-			ft_putchar_fd(s[i++], fd);
-	ft_putchar_fd('\n', fd);
+	while (*s)
+		write(fd, s++, 1);
+	write(fd, "\n", 1);
 }

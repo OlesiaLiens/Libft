@@ -6,15 +6,15 @@
 /*   By: oshyiata <oshyiata@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 18:46:09 by oshyiata          #+#    #+#             */
-/*   Updated: 2018/11/07 18:57:26 by oshyiata         ###   ########.fr       */
+/*   Updated: 2018/11/16 12:51:41 by oshyiata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmap(char const *s, char (*f)(char))
+char		*ft_strmap(char const *s, char (*f)(char))
 {
-	int		i;
+	size_t	i;
 	char	*res;
 
 	i = 0;
@@ -23,7 +23,7 @@ char	*ft_strmap(char const *s, char (*f)(char))
 		res = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
 		if (res == NULL)
 			return (0);
-		while (*s)
+		while (s[i])
 		{
 			res[i] = f(s[i]);
 			i++;

@@ -25,7 +25,6 @@ static	int	ft_get_size(int n)
 		size++;
 	}
 	return (size);
-	printf("%d asdasdasd", size);
 }
 
 char		*ft_itoa(int n)

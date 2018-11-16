@@ -6,7 +6,7 @@
 /*   By: oshyiata <oshyiata@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/28 19:05:16 by oshyiata          #+#    #+#             */
-/*   Updated: 2018/10/28 19:58:39 by oshyiata         ###   ########.fr       */
+/*   Updated: 2018/11/15 16:23:30 by oshyiata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ char	*ft_strcpy(char *s1, const char *s2)
 	size_t i;
 
 	i = 0;
-	while (s2[i] && s1[i])
+	while (s2[i] != '\0')
 	{
 		s1[i] = s2[i];
 		i++;
 	}
-	s1[i] = s2[i];
+	s1[i] = '\0';
 	return (s1);
 }

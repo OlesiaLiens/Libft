@@ -6,37 +6,24 @@
 /*   By: oshyiata <oshyiata@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/01 17:58:42 by oshyiata          #+#    #+#             */
-/*   Updated: 2018/11/06 15:25:38 by oshyiata         ###   ########.fr       */
+/*   Updated: 2018/11/15 17:05:31 by oshyiata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *s, const char *n, size_t len)
+char		*ft_strnstr(const char *s1, const char *s2, size_t n)
 {
-	size_t len_n;
-	size_t ind;
-	size_t pos;
+	size_t	len2;
 
-	len_n = 0;
-	ind = 0;
-	pos = 0;
-	while (n[len_n])
-		len_n++;
-	if (len_n == 0 || s == n)
-		return ((char *)s);
-	len--;
-	while (s[ind] && len)
+	if (*s2 == '\0')
+		return ((char *)s1);
+	len2 = ft_strlen(s2);
+	while (*s1 != '\0' && n-- >= len2)
 	{
-		while (n[pos] == s[ind + pos] && len)
-		{
-			if (pos == len_n - 1)
-				return ((char *)s + ind);
-			pos++;
-			len--;
-		}
-		pos = 0;
-		ind++;
+		if (*s1 == *s2 && ft_memcmp(s1, s2, len2) == 0)
+			return ((char *)s1);
+		s1++;
 	}
 	return (NULL);
 }
