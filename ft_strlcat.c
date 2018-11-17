@@ -6,13 +6,13 @@
 /*   By: oshyiata <oshyiata@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/29 16:06:22 by oshyiata          #+#    #+#             */
-/*   Updated: 2018/10/29 16:40:43 by oshyiata         ###   ########.fr       */
+/*   Updated: 2018/11/17 13:24:56 by oshyiata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	ft_strlcat(char *dst, const char *src, size_t dstsize)
+size_t		ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t	dst_i;
 	size_t	src_i;

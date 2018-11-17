@@ -6,35 +6,28 @@
 /*   By: oshyiata <oshyiata@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/10 15:36:21 by oshyiata          #+#    #+#             */
-/*   Updated: 2018/11/10 15:59:17 by oshyiata         ###   ########.fr       */
+/*   Updated: 2018/11/17 14:29:13 by oshyiata         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s)
+char		*ft_strtrim(char const *s)
 {
-	char	*res;
-	int		len;
-	int		i;
+	size_t	len;
+	size_t	i;
+	int		res;
 
+	if (!s)
+		return (0);
 	i = 0;
-	len = 0;
-	if (s && *s)
-	{
-		len = ft_strlen(s) - 1;
-		while (s[i] && (s[i] == ' ' || s[i] == '\n' || s[i] == '\t'))
-			i++;
-		if (s[i] == '\0')
-			return ("\0");
-		while (len > 0 && (s[len] == ' ' || s[len] == '\n' || s[len] == '\t'))
-			len--;
-		res = (char *)malloc(sizeof(char) * (len - i + 2));
-		if (res == NULL)
-			return (NULL);
-		res[len - i + 1] = '\0';
-		ft_strncpy(res, &s[i], (len - i + 1));
-		return (res);
-	}
-	return (NULL);
+	while (s[i] == ' ' || s[i] == '\t' || s[i] == '\n')
+		i++;
+	len = ft_strlen(s);
+	while (len != 1 && (s[len - 1] == ' ' || s[len - 1] == '\t' || s[len - 1] == '\n'))
+		len--;
+	res = len - i;
+	if (res < 0)
+		res = 0;
+	return (ft_strsub(s, i, (size_t)res));
 }
